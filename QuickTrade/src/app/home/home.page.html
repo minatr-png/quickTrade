@@ -8,6 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <div>
+    <!--Datos PRINCIPALES-->
     <ion-item-divider>
       <ion-label>
         Datos generales
@@ -19,11 +20,11 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Descripción</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="description"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Precio</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-input [(ngModel)]="price" type="number"></ion-input>
     </ion-item>
 
     <ion-list>
@@ -49,6 +50,7 @@
       </ion-radio-group>
     </ion-list>
 
+    <!--Datos SECUNDARIOS-->
     <div *ngIf="category == 'motor'">
       <ion-item-divider>
         <ion-label>
@@ -58,15 +60,11 @@
 
       <ion-item>
         <ion-label position="floating">Kilómetros</ion-label>
-        <ion-input type="number"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Precio</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input [(ngModel)]="km" type="number"></ion-input>
       </ion-item>
 
       <ion-list>
-        <ion-radio-group value="biff">
+        <ion-radio-group [(ngModel)]="type" value="biff">
           <ion-list-header>
             <ion-label>Tipo</ion-label>
           </ion-list-header>
@@ -86,25 +84,25 @@
     <div *ngIf="category == 'inmobiliaria'">
       <ion-item-divider>
         <ion-label>
-          Datos sobre la categoría categoría inmobiliaria
+          Datos sobre la categoría inmobiliaria
         </ion-label>
       </ion-item-divider>
 
       <ion-item>
         <ion-label position="floating">Metros cuadrados</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input [(ngModel)]="size" type="number"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número de baños</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input [(ngModel)]="bathrooms"  type="number"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Número de habitaciones</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input [(ngModel)]="rooms" type="number"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Localidad</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="locality" ></ion-input>
       </ion-item>
     </div>
 
@@ -116,7 +114,7 @@
       </ion-item-divider>
 
       <ion-list>
-        <ion-radio-group value="biff">
+        <ion-radio-group [(ngModel)]="state"  value="biff">
           <ion-list-header>
             <ion-label>Estado</ion-label>
           </ion-list-header>
@@ -134,45 +132,18 @@
       </ion-list>
     </div>
 
-    <ion-button [shape]="btnShape">Añadir</ion-button>
+    <ion-button [shape]="btnShape" (click)="add_Product()">Añadir</ion-button>
+
+    <!--Sección de PRODUCTOS-->
     <div>
-      <h1>Motor</h1>
-      <ion-card *ngFor="let item of motorProducts">
+      <h1 class="ion-text-center">Productos</h1>
+      <ion-card *ngFor="let item of products">
         <ion-card-header>
           <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
           <p>{{item.description}}</p>
-          <p>Kilómetros: {{item.km}}</p>
-        </ion-card-content>
-      </ion-card>
-
-      <h1>Inmobiliaria</h1>
-      <ion-card *ngFor="let item of inmobProducts">
-        <ion-card-header>
-          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>{{item.description}}</p>
-          <p>Detalles:</p>
-          <p>Tamaño: {{item.size}} m²</p>
-          <p>Nº de baños: {{item.bathrooms}}</p>
-          <p>Nº de habitaciones: {{item.rooms}}</p>
-          <p>Localidad: {{item.locality}}</p>
-        </ion-card-content>
-      </ion-card>
-
-      <h1>Tecnología</h1>
-      <ion-card *ngFor="let item of tecnoProducts">
-        <ion-card-header>
-          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>{{item.description}}</p>
-          <p>Estado: {{item.state}}</p>
         </ion-card-content>
       </ion-card>
     </div>
