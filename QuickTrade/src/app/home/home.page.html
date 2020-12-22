@@ -7,20 +7,58 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="container">
-    <div>
+  <div>
+    <ion-item-divider>
+      <ion-label>
+        Datos generales
+      </ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group value="biff" (ionChange)="change_Categoy($event)">
+        <ion-list-header>
+          <ion-label>Categoría</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Motor</ion-label>
+          <ion-radio slot="start" value="motor"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Inmobiliaria</ion-label>
+          <ion-radio slot="start" value="inmobiliaria" (ionFocus)="change_Categoy('inmobiliaria')"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Tecnología</ion-label>
+          <ion-radio slot="start" value="tecnologia" (ionFocus)="change_Categoy('tecnologia')"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <div *ngIf="category == 'motor'">
       <ion-item-divider>
         <ion-label>
-          Datos generales
+          Datos sobre la categoría motor
         </ion-label>
       </ion-item-divider>
+
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input [(ngModel)]="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Descripción</ion-label>
-        <ion-input></ion-input>
+        <ion-label position="floating">Kilómetros</ion-label>
+        <ion-input type="number"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Precio</ion-label>
@@ -28,156 +66,115 @@
       </ion-item>
 
       <ion-list>
-        <ion-radio-group value="biff" (ionChange)="change_Categoy($event)">
+        <ion-radio-group value="biff">
           <ion-list-header>
-            <ion-label>Categoría</ion-label>
+            <ion-label>Tipo</ion-label>
           </ion-list-header>
 
           <ion-item>
-            <ion-label>Motor</ion-label>
-            <ion-radio slot="start" value="motor"></ion-radio>
+            <ion-label>Coche</ion-label>
+            <ion-radio slot="start" value="coche"></ion-radio>
           </ion-item>
 
           <ion-item>
-            <ion-label>Inmobiliaria</ion-label>
-            <ion-radio slot="start" value="inmobiliaria" (ionFocus)="change_Categoy('inmobiliaria')"></ion-radio>
-          </ion-item>
-
-          <ion-item>
-            <ion-label>Tecnología</ion-label>
-            <ion-radio slot="start" value="tecnologia" (ionFocus)="change_Categoy('tecnologia')"></ion-radio>
+            <ion-label>Moto</ion-label>
+            <ion-radio slot="start" value="moto"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
-
-      <div *ngIf="category == 'motor'">
-        <ion-item-divider>
-          <ion-label>
-            Datos sobre la categoría motor
-          </ion-label>
-        </ion-item-divider>
-
-        <ion-item>
-          <ion-label position="floating">Kilómetros</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Precio</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-
-        <ion-list>
-          <ion-radio-group value="biff">
-            <ion-list-header>
-              <ion-label>Tipo</ion-label>
-            </ion-list-header>
-
-            <ion-item>
-              <ion-label>Coche</ion-label>
-              <ion-radio slot="start" value="coche"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>Moto</ion-label>
-              <ion-radio slot="start" value="moto"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-      <div *ngIf="category == 'inmobiliaria'">
-        <ion-item-divider>
-          <ion-label>
-            Datos sobre la categoría categoría inmobiliaria
-          </ion-label>
-        </ion-item-divider>
-
-        <ion-item>
-          <ion-label position="floating">Metros cuadrados</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Número de baños</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Número de habitaciones</ion-label>
-          <ion-input type="number"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Localidad</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-      </div>
-
-      <div *ngIf="category == 'tecnologia'">
-        <ion-item-divider>
-          <ion-label>
-            Datos sobre la categoría tecnologia
-          </ion-label>
-        </ion-item-divider>
-
-        <ion-list>
-          <ion-radio-group value="biff">
-            <ion-list-header>
-              <ion-label>Estado</ion-label>
-            </ion-list-header>
-
-            <ion-item>
-              <ion-label>Perfecto estado</ion-label>
-              <ion-radio slot="start" value="perfecto"></ion-radio>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>Usado</ion-label>
-              <ion-radio slot="start" value="usado"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-      </div>
-
-      <ion-button [shape]="btnShape">Añadir</ion-button>
-      <div>
-        <h1>Motor</h1>
-        <ion-card *ngFor="let item of motorProducts">
-          <ion-card-header>
-            <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-          </ion-card-header>
-  
-          <ion-card-content>
-            <p>{{item.description}}</p>
-            <p>Kilómetros: {{item.km}}</p>
-          </ion-card-content>
-        </ion-card>
-  
-        <h1>Inmobiliaria</h1>
-        <ion-card *ngFor="let item of inmobProducts">
-          <ion-card-header>
-            <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-          </ion-card-header>
-  
-          <ion-card-content>
-            <p>{{item.description}}</p>
-            <p>Detalles:</p>
-            <p>Tamaño: {{item.size}} m²</p>
-            <p>Nº de baños: {{item.bathrooms}}</p>
-            <p>Nº de habitaciones: {{item.rooms}}</p>
-            <p>Localidad: {{item.locality}}</p>
-          </ion-card-content>
-        </ion-card>
-  
-        <h1>Tecnología</h1>
-        <ion-card *ngFor="let item of tecnoProducts">
-          <ion-card-header>
-            <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-          </ion-card-header>
-  
-          <ion-card-content>
-            <p>{{item.description}}</p>
-            <p>Estado: {{item.state}}</p>
-          </ion-card-content>
-        </ion-card>
-      </div>
     </div>
-    
+    <div *ngIf="category == 'inmobiliaria'">
+      <ion-item-divider>
+        <ion-label>
+          Datos sobre la categoría categoría inmobiliaria
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-label position="floating">Metros cuadrados</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número de baños</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número de habitaciones</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Localidad</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </div>
+
+    <div *ngIf="category == 'tecnologia'">
+      <ion-item-divider>
+        <ion-label>
+          Datos sobre la categoría tecnologia
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-list>
+        <ion-radio-group value="biff">
+          <ion-list-header>
+            <ion-label>Estado</ion-label>
+          </ion-list-header>
+
+          <ion-item>
+            <ion-label>Perfecto estado</ion-label>
+            <ion-radio slot="start" value="perfecto"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Usado</ion-label>
+            <ion-radio slot="start" value="usado"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </div>
+
+    <ion-button [shape]="btnShape">Añadir</ion-button>
+    <div>
+      <h1>Motor</h1>
+      <ion-card *ngFor="let item of motorProducts">
+        <ion-card-header>
+          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{item.description}}</p>
+          <p>Kilómetros: {{item.km}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <h1>Inmobiliaria</h1>
+      <ion-card *ngFor="let item of inmobProducts">
+        <ion-card-header>
+          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{item.description}}</p>
+          <p>Detalles:</p>
+          <p>Tamaño: {{item.size}} m²</p>
+          <p>Nº de baños: {{item.bathrooms}}</p>
+          <p>Nº de habitaciones: {{item.rooms}}</p>
+          <p>Localidad: {{item.locality}}</p>
+        </ion-card-content>
+      </ion-card>
+
+      <h1>Tecnología</h1>
+      <ion-card *ngFor="let item of tecnoProducts">
+        <ion-card-header>
+          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{item.description}}</p>
+          <p>Estado: {{item.state}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 </ion-content>
