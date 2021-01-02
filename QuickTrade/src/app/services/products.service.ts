@@ -57,4 +57,8 @@ export class ProductsService {
     getProducts(): IProduct[]{
         return this.products;
     }
+
+    getProduct(id : number) : IProduct{
+        return this.products.find(x => x.id == id);
+    }
 }

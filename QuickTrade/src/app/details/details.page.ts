@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from '../services/products.service';
+import { IProduct } from '../interfaces';
 
 @Component({
   selector: 'app-details',
@@ -8,9 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPage implements OnInit {
 
-  constructor(/*private _activatedRoute: ActivatedRoute*/) { }
+  id : number;
+  product : IProduct;
+
+  constructor(private _activatedRoute: ActivatedRoute, private _productsService : ProductsService) { }
 
   ngOnInit() {
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.product = this._productsService.getProduct(this.id);
   }
-
 }

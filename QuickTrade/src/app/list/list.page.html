@@ -4,17 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div>
-    <h1 class="ion-text-center">Productos</h1>
-    <ion-card *ngFor="let item of products">
-      <ion-card-header>
-        <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-      </ion-card-header>
+<ion-content>  
+  <h1 class="ion-text-center">Productos</h1>
+  <ion-card *ngFor="let item of products">
+    <ion-card-header>
+      <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
+    </ion-card-header>
 
-      <ion-card-content>
-        <p>{{item.description}}</p>
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <ion-card-content>
+      <p>{{item.description}}</p>
+    </ion-card-content>
+    <ion-button [shape]="round" [routerLink]="['/details/',item.id]" routerDirection="forward">Details</ion-button>
+  </ion-card>
 </ion-content>
