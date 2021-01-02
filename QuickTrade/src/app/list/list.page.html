@@ -5,6 +5,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-button [shape]="round" (click)="add_Product()">Listado de productos</ion-button>
-  <ion-button [shape]="round" (click)="add_Product()">Añadir productos</ion-button>
+  <div>
+    <h1 class="ion-text-center">Productos</h1>
+    <ion-card *ngFor="let item of products">
+      <ion-card-header>
+        <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{item.description}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

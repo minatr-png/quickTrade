@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct, IMotor, IInmobiliaria, ITecnologia } from '../interfaces';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-add-item',
+  templateUrl: './add-item.page.html',
+  styleUrls: ['./add-item.page.scss'],
 })
-export class HomePage {
+export class AddItemPage implements OnInit {
 
   //Variables para el estado base
   title: string = "QuickTrade";
@@ -83,7 +83,7 @@ export class HomePage {
   constructor(private _toastCtrl: ToastController) { }
 
   ngOnInit() {
-    console.log("Estás en la página principal.");
+    console.log("Estás en la página de añadir elementos.");
   }
 
   change_Categoy(value) {

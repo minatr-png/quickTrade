@@ -133,19 +133,5 @@
     </div>
 
     <ion-button [shape]="btnShape" (click)="add_Product()">Añadir</ion-button>
-
-    <!--Sección de PRODUCTOS-->
-    <div>
-      <h1 class="ion-text-center">Productos</h1>
-      <ion-card *ngFor="let item of products">
-        <ion-card-header>
-          <ion-card-title>{{item.name}} ({{item.price}}€)</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-          <p>{{item.description}}</p>
-        </ion-card-content>
-      </ion-card>
-    </div>
   </div>
 </ion-content>
