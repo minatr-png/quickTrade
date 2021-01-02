@@ -82,6 +82,10 @@ export class HomePage {
 
   constructor(private _toastCtrl: ToastController) { }
 
+  ngOnInit() {
+    console.log("Estás en la página principal.");
+  }
+
   change_Categoy(value) {
     this.category = value.target.value;
   }
