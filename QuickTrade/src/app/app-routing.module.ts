@@ -8,13 +8,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
-  },
-  {
     path: 'main-menu',
     loadChildren: () => import('./main-menu/main-menu.module').then( m => m.MainMenuPageModule)
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./list/list.module').then( m => m.ListPageModule)
+  },  
   {
     path: 'add-item',
     loadChildren: () => import('./add-item/add-item.module').then( m => m.AddItemPageModule)

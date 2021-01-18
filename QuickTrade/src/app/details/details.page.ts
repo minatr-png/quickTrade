@@ -16,7 +16,7 @@ export class DetailsPage implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute, private _productsService : ProductsService) { }
 
   ngOnInit() {
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
-    this.product = this._productsService.getProduct(this.id);
+    //this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+    //this.product = this._productsService.getProduct(this.id);
   }
 }

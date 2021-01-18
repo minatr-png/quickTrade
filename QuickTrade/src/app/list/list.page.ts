@@ -14,6 +14,6 @@ export class ListPage implements OnInit {
   constructor(private _productsService : ProductsService) { }
 
   ngOnInit() {
-    this.products =  this._productsService.getProducts();
+    //this.products =  this._productsService.getProducts();
   }
 }

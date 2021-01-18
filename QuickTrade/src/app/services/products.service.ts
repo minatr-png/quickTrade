@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { IProduct, IMotor, IInmobiliaria, ITecnologia } from '../interfaces';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 
 export class ProductsService {
-    products: (IProduct | IMotor | IInmobiliaria | ITecnologia)[] = [
+    /*products: (IProduct | IMotor | IInmobiliaria | ITecnologia)[] = [
         {
             "id": 1,
             "name": "Mazda R8",
@@ -60,5 +61,14 @@ export class ProductsService {
 
     getProduct(id : number) : IProduct{
         return this.products.find(x => x.id == id);
+    }*/
+
+    constructor(private _db: AngularFireDatabase) {
+
+    }
+
+    setProduct(product: IProduct) {
+        let ref = this._db.database.ref("products");
+        ref.push(product);
     }
 }
