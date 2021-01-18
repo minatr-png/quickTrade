@@ -54,17 +54,18 @@ export class ProductsService {
             "state": "usado"
         }
     ]
-
-    getProducts(): IProduct[]{
-        return this.products;
-    }
-
+    
     getProduct(id : number) : IProduct{
         return this.products.find(x => x.id == id);
     }*/
 
     constructor(private _db: AngularFireDatabase) {
 
+    }
+
+    getProducts(): firebase.default.database.Reference{
+        let ref = this._db.database.ref("products");
+        return ref;
     }
 
     setProduct(product: IProduct) {
