@@ -27,15 +27,13 @@ export class MisVentasPage implements OnInit {
   }
 
   addEnvio() {
-    let product;
+    /*let product;
     const id = +this._activatedRoute.snapshot.paramMap.get('id');
     let ref = this._productsService.getProducts();
     ref.once("value", snapshot => {
       snapshot.forEach(child => {
         let value = child.val();
-        console.log(id);
         if (id == value.id) {
-          console.log(value);
           let venta: IVenta = {
             "name": value.name,
             "punctuation": this.punctuation
@@ -45,7 +43,15 @@ export class MisVentasPage implements OnInit {
           this.ventasToast();
         }
       })
-    })
+    })*/
+
+    let venta: IVenta = {
+      "name": "Prueba",
+      "punctuation": this.punctuation
+    };
+
+    this._productsService.setVentas(venta);
+    this.ventasToast();
   }
 
   async ventasToast() {
