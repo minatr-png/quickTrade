@@ -14,9 +14,10 @@
     <ion-card-content>
       <p>{{item.description}}  </p>
       <p>Id: {{item.id}}</p>
-      <ion-input [(ngModel)]="price" type="number" max=5 min=0></ion-input>
-      <ion-input type="checkbox"></ion-input>
-      <ion-button [shape]="btnShape" (click)="add_Product()">Enviar</ion-button>
+      <p>----------------------------------------------------------------------</p>
+      <h1>Calificación</h1>      
+      <ion-input [(ngModel)]="punctuation" type="number" max=5 min=0></ion-input>
+      <ion-button [shape]="btnShape" (click)="addEnvio()">Enviar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

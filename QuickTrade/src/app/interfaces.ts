@@ -21,7 +21,7 @@ export interface ITecnologia extends IProduct {
     "state": string,
 }
 
-export interface IVentas {
-    "id" : number,
-    "productos": [],
+export interface IVenta {
+    "name" : string,
+    "punctuation": number,
 }
