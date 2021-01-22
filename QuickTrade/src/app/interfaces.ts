@@ -20,3 +20,8 @@ export interface IInmobiliaria extends IProduct {
 export interface ITecnologia extends IProduct {
     "state": string,
 }
+
+export interface IVentas {
+    "id" : number,
+    "productos": [],
+}

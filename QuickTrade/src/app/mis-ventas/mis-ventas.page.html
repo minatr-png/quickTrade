@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>QuickTrade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="ion-text-center">Mis Ventas</h1>
+  <ion-card *ngFor="let item of ventas">
+    <ion-card-header>
+      <ion-card-title>Name: {{item.name}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>{{item.description}}  </p>
+      <p>Id: {{item.id}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
