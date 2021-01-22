@@ -65,5 +65,4 @@ export class AddItemPage implements OnInit {
       });
       toast.present();
   }
-
 }
